@@ -7,7 +7,8 @@ public class Walker {
 	protected int position;
 
 	public Walker(String name, int speed) {
-		// TODO Fill code
+		this.name = name;
+		this.speed = speed;
 	}
 	
 	public Walker(Walker other) {
@@ -17,7 +18,7 @@ public class Walker {
 	}
 
 	public void move() {
-		// TODO Fill code
+		this.position += this.speed + RandomGenerator.random(0, 200);
 	}
 
 	public String getName() {

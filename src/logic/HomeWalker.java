@@ -2,7 +2,7 @@ package logic;
 
 import util.RandomGenerator;
 
-public class HomeWalker /* TODO Fill code */ {
+public class HomeWalker extends Walker {
 
 	public HomeWalker(String name, int speed) {
 		super(name, speed);
@@ -14,10 +14,12 @@ public class HomeWalker /* TODO Fill code */ {
 
 	@Override
 	public void move() {
-		// TODO Fill code
+		this.position += this.speed;
+		homeBuff();
+		homeBuff();
 	}
 
 	private void homeBuff() {
-		// TODO Fill code
+		this.position += RandomGenerator.random(0, 200);
 	}
 }

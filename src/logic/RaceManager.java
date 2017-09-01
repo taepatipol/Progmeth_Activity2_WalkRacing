@@ -1,6 +1,7 @@
 package logic;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 public class RaceManager {
@@ -36,13 +37,31 @@ public class RaceManager {
 	}
 
 	public void update() {
-		// TODO Fill code
+		for (Walker w : walkers) {
+			w.move();
+		}
 	}
 
 	public Walker getWinner() {
 		Walker winner = null;
-
-		// TODO Fill code
+		List<Walker> finished = new LinkedList<>();
+		for(Walker w : walkers) {
+			if (w.getPosition() >= finishPosition) {
+				finished.add(w);
+			}
+		}
+		if (finished.size() > 1) {
+			for (Walker f : finished) {
+				if (f instanceof HomeWalker) {
+					winner = f;
+				}
+			}
+			if (winner == null) {
+				winner = finished.get(0);
+			} 
+		} else if (finished.size() == 1) {
+			winner = finished.get(0);
+		}
 
 		return winner;
 	}
